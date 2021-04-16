@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     removeTodo(todoId) {
-      axios.delete("http://localhost:1323/todo?todoId=" + todoId).then(() => {
+      axios.delete("http://localhost:1323/todo/" + todoId).then(() => {
         const deleteItem = this.todoList.filter(x => x.id === todoId);
         this.todoList.splice(this.todoList.indexOf(deleteItem[0]), 1);
       })

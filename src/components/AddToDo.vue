@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     addTodo() {
-      axios.put("http://localhost:1323/todo", {
+      axios.post("http://localhost:1323/todo", {
         'Title': this.title
       }, {
         headers: {
