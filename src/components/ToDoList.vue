@@ -1,7 +1,7 @@
 <template>
   <div class="todoList">
     <p v-for="todo in todoList" :key="todo.id">
-      {{ todo.title }} - {{ todo.priority }}
+      {{ todo.title }}
       <button v-on:click="removeTodo(todo.id)">X</button>
     </p>
   </div>
