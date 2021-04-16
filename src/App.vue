@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <AddToDo @todoAdded="todoAdded"/>
+    <ToDoList :newToDo="addedToDo"/>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AddToDo from '@/components/AddToDo.vue'
+import ToDoList from "@/components/ToDoList";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ToDoList,
+    AddToDo
+  },
+  data: function () {
+    return {
+      addedToDo: null
+    }
+  },
+  methods: {
+    todoAdded(addedObject) {
+     this.addedToDo = addedObject
+    }
   }
 }
 </script>
