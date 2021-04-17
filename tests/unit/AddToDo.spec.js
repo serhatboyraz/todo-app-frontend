@@ -21,8 +21,10 @@ describe('AddToDo.vue', () => {
 
     it('should be emit when button clicked', () => {
         const spy = sinon.spy(vm, '$emit');
+
         vm.$el.lastChild.click();
         setTimeout(function(){
+            console.log(spy.args)
             expect(spy.called).to.be.true;
         }, 1000);
 
