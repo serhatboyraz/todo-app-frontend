@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app-frontend
+spec:
+  selector:
+    matchLabels:
+      app: todo-app-frontend
+  replicas: 1
+  revisionHistoryLimit: 3
+  template:
+    metadata:
+      labels:
+        app: todo-app-frontend
+    spec:
+      containers:
+        - name: todo-app-frontend
+          image: serhatb/todo-app-frontend:stable
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-app-frontend-service
+spec:
+  selector:
+    app: todo-app-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
